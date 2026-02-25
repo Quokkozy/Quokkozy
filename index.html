@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quokkozy ($QUZY) | The Coziest Meme on Base</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary-orange: #FF6B00;
+            --secondary-orange: #FF9D42;
+            --bg-cream: #FFF7ED;
+        }
+
+        body { 
+            font-family: 'Fredoka', sans-serif; 
+            background-color: var(--bg-cream);
+            scroll-behavior: smooth;
+        }
+
+        .quzy-gradient { 
+            background: linear-gradient(135deg, var(--secondary-orange) 0%, var(--primary-orange) 100%); 
+        }
+
+        .burn-card-dark { 
+            background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%); 
+        }
+
+        .hero-pattern { 
+            background-image: radial-gradient(var(--secondary-orange) 0.5px, transparent 0.5px); 
+            background-size: 24px 24px;
+            background-opacity: 0.1;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .copy-button:active {
+            transform: scale(0.95);
+        }
+        
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-orange);
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <!-- Header / Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-orange-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Logo.jpg" alt="QUZY Logo" class="w-10 h-10 rounded-full shadow-md">
+                <span class="text-2xl font-bold text-[#FF6B00] tracking-tight">QUZY</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold text-stone-600">
+                <a href="#about" class="hover:text-[#FF6B00] transition">About</a>
+                <a href="#howtobuy" class="hover:text-[#FF6B00] transition">How to Buy</a>
+                <a href="#tokenomics" class="hover:text-[#FF6B00] transition">Tokenomics</a>
+                <a href="#burn" class="hover:text-[#FF6B00] transition">Burn Engine</a>
+                <a href="#whitepaper" class="text-orange-600 font-bold hover:underline">White Paper</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://app.uniswap.org/" target="_blank" class="bg-[#FF6B00] text-white px-6 py-2 rounded-full font-bold hover:scale-105 transition shadow-lg shadow-orange-200">
+                    Buy $QUZY
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-32 pb-20 px-6 hero-pattern">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-10 inline-block relative">
+                <div class="absolute inset-0 bg-orange-500 blur-3xl opacity-20 rounded-full animate-pulse"></div>
+                <img src="Logo.jpg" alt="Quokkozy Hero" class="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-[3rem] border-8 border-white shadow-2xl floating">
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold text-[#FF6B00] mb-4 tracking-tighter uppercase">QUOKKOZY</h1>
+            <p class="text-xl md:text-3xl font-medium text-stone-600 mb-8 italic">"Stay Cozy, Watch it Burn."</p>
+            
+            <!-- CA Display -->
+            <div class="mb-8 max-w-lg mx-auto">
+                <p class="text-xs font-bold text-red-500 uppercase mb-2 flex items-center justify-center gap-2">
+                    <i class="fas fa-shield-check"></i> OFFICIAL CONTRACT ADDRESS (BASE)
+                </p>
+                <div class="bg-white p-3 rounded-2xl border-2 border-orange-500 flex items-center justify-between shadow-lg">
+                    <code id="contract-address" class="text-xs md:text-sm font-bold text-stone-600 truncate mr-2">0x1f504ddf72f698dcc53a8fc6a8ae779383447457</code>
+                    <button onclick="copyCA()" class="copy-button bg-orange-500 text-white px-4 py-1 rounded-xl text-sm font-bold hover:bg-orange-600 transition shrink-0">
+                        COPY
+                    </button>
+                </div>
+                <p class="text-[10px] text-stone-400 mt-2 font-bold uppercase tracking-widest text-center italic">⚠️ ALWAYS VERIFY THE CA BEFORE SWAPPING ⚠️</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="downloadWP()" class="bg-stone-800 text-white px-6 py-3 rounded-2xl shadow-lg font-bold flex items-center gap-2 hover:bg-black transition">
+                    <i class="fas fa-file-pdf"></i> Full White Paper
+                </button>
+                <a href="https://zora.co/@quzy" target="_blank" class="bg-white px-6 py-3 rounded-2xl shadow-sm border border-orange-100 font-bold flex items-center gap-2 hover:bg-orange-50 transition">
+                    <img src="https://zora.co/favicon.ico" class="w-4 h-4" alt=""> Zora Profile
+                </a>
+                <a href="https://www.geckoterminal.com/base/pools/0x1f5b10e6994fe8772ad4f30bf7bb8c78ce7baa02fb506e62a3aa6e7d89df5ec6" target="_blank" class="bg-white px-6 py-3 rounded-2xl shadow-sm border border-orange-100 font-bold flex items-center gap-2 hover:bg-orange-50 transition text-green-600">
+                    <i class="fas fa-chart-line"></i> Chart
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section id="howtobuy" class="py-24 px-6 bg-orange-50/50 border-y border-orange-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 uppercase italic tracking-tight text-stone-800 underline decoration-orange-500">How To Buy $QUZY</h2>
+                <p class="text-stone-600 italic">Get your $QUZY on Uniswap V4 (Base Network)</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-[2rem] border-2 border-transparent step-card shadow-sm text-center md:text-left">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0">1</div>
+                    <h3 class="text-xl font-bold mb-3">Create Wallet</h3>
+                    <p class="text-stone-500 text-sm">Download MetaMask or Coinbase Wallet. Set your network to <b>Base Mainnet</b>.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border-2 border-transparent step-card shadow-sm text-center md:text-left">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0">2</div>
+                    <h3 class="text-xl font-bold mb-3">Get ETH on Base</h3>
+                    <p class="text-stone-500 text-sm">Transfer ETH to your wallet on the <b>Base network</b> or bridge it from Ethereum Mainnet.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border-2 border-transparent step-card shadow-sm text-center md:text-left">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0">3</div>
+                    <h3 class="text-xl font-bold mb-3">Visit Uniswap</h3>
+                    <p class="text-stone-500 text-sm">Head over to <a href="https://app.uniswap.org" target="_blank" class="text-orange-600 font-bold underline">Uniswap</a> and connect your wallet.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border-4 border-orange-500 step-card shadow-xl scale-105 text-center md:text-left">
+                    <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0">4</div>
+                    <h3 class="text-xl font-bold mb-3 text-orange-600">Swap with CA</h3>
+                    <p class="text-stone-600 text-sm font-bold">Paste our Official CA. Verify that the address matches our website exactly.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-red-100 border-l-8 border-red-500 p-6 rounded-2xl">
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="text-red-700 font-bold text-xl mb-1 uppercase">Warning: Beware of Scams!</h4>
+                        <p class="text-red-600 font-medium">Always verify the Contract Address (<b>0x1f50...457</b>) before swapping. Do not buy from unverified links or contracts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 italic text-stone-800 uppercase underline decoration-[#FF6B00]">Qukenomics</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-orange-50 p-10 rounded-[2.5rem] text-left border-2 border-orange-100 relative overflow-hidden group">
+                    <div class="absolute top-[-20px] right-[-20px] text-orange-200 text-9xl opacity-20 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-[#FF6B00]">50% Liquidity Pool</h3>
+                    <p class="text-stone-600 text-lg leading-relaxed mb-6">
+                        Half of the total supply is sent to **Uniswap V4** for a fair community launch. Locked and transparent.
+                    </p>
+                    <div class="inline-block bg-[#FF6B00] text-white px-4 py-1 rounded-lg font-bold">500,000,000 $QUZY</div>
+                </div>
+
+                <div class="bg-stone-50 p-10 rounded-[2.5rem] text-left border-2 border-stone-200 relative overflow-hidden group">
+                    <div class="absolute top-[-20px] right-[-20px] text-stone-200 text-9xl opacity-20 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-stone-800">50% Creator Fund</h3>
+                    <p class="text-stone-600 text-lg leading-relaxed mb-6">
+                        Managed for the **Double-Burn engine**, marketing campaigns, and ecosystem development.
+                    </p>
+                    <div class="inline-block bg-stone-800 text-white px-4 py-1 rounded-lg font-bold">500,000,000 $QUZY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Burn Mechanism Section -->
+    <section id="burn" class="quzy-gradient py-24 px-6 text-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4 italic uppercase tracking-tighter">Double Burn Engine</h2>
+                <p class="text-xl opacity-90">Aggressive deflationary mechanics built to reward holders.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black shadow-lg">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Holder-Activated Burn</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <span class="font-medium">Hold 1,000 - 9,000 $QUZY</span>
+                            <span class="text-2xl font-bold text-yellow-300">1% BURN</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <span class="font-medium">Hold 10,000+ $QUZY</span>
+                            <span class="text-2xl font-bold text-yellow-300">5% BURN</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 mt-4 text-sm italic opacity-80">
+                            *All burns are deducted from the Creator allocation, reducing total supply by up to **14%** cumulatively.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="burn-card-dark p-8 rounded-3xl border border-orange-500/30 shadow-2xl">
+                    <div class="flex items-center gap-4 mb-8 text-orange-400">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-fire text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Quarterly Reward Split</h3>
+                    </div>
+                    <p class="mb-6 text-stone-300 italic">Every 3 months, Creator rewards are claimed and distributed:</p>
+                    <div class="space-y-3">
+                        <div class="p-4 bg-orange-600 rounded-2xl text-center">
+                            <span class="block text-xs uppercase font-bold opacity-70 mb-1">Permanent Burn</span>
+                            <span class="text-3xl font-bold">50%</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-4 bg-white/5 rounded-2xl text-center border border-white/10">
+                                <span class="block text-xs uppercase font-bold opacity-70 mb-1">Marketing</span>
+                                <span class="text-xl font-bold">40%</span>
+                            </div>
+                            <div class="p-4 bg-white/5 rounded-2xl text-center border border-white/10">
+                                <span class="block text-xs uppercase font-bold opacity-70 mb-1">Team</span>
+                                <span class="text-xl font-bold">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- White Paper Section -->
+    <section id="whitepaper" class="py-24 px-6 bg-white border-t border-orange-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-stone-50 rounded-[3rem] p-8 md:p-12 border-2 border-orange-100 shadow-xl text-center">
+                <i class="fas fa-scroll text-6xl text-[#FF6B00] mb-6"></i>
+                <h2 class="text-4xl font-bold mb-4 tracking-tight uppercase">Full White Paper</h2>
+                <p class="text-stone-600 mb-8 max-w-lg mx-auto italic">Explore the complete vision, detailed tokenomics, and the roadmap for $QUZY on Base.</p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="downloadWP()" class="bg-[#FF6B00] text-white px-10 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-lg flex items-center justify-center gap-3">
+                        <i class="fas fa-download"></i> Download Full Version
+                    </button>
+                    <a href="https://x.com/0xMeltie" target="_blank" class="bg-white border-2 border-[#FF6B00] text-[#FF6B00] px-10 py-4 rounded-2xl font-bold text-lg hover:bg-orange-50 transition flex items-center justify-center gap-3">
+                        <i class="fab fa-twitter"></i> Stay Updated
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 text-center border-t border-orange-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-center items-center gap-3 mb-8">
+                <img src="Logo.jpg" alt="QUZY Logo" class="w-12 h-12 rounded-full grayscale opacity-50">
+                <span class="text-3xl font-bold text-stone-300 tracking-tighter uppercase">QUOKKOZY</span>
+            </div>
+            <div class="flex justify-center space-x-8 text-3xl mb-12">
+                <a href="https://x.com/0xMeltie" target="_blank" class="text-stone-400 hover:text-[#FF6B00] transition"><i class="fab fa-twitter"></i></a>
+                <a href="https://zora.co/@quzy" target="_blank" class="text-stone-400 hover:text-[#FF6B00] transition"><i class="fas fa-circle-nodes"></i></a>
+                <a href="https://www.geckoterminal.com/base/pools/0x1f5b10e6994fe8772ad4f30bf7bb8c78ce7baa02fb506e62a3aa6e7d89df5ec6" target="_blank" class="text-stone-400 hover:text-[#FF6B00] transition"><i class="fas fa-chart-line"></i></a>
+            </div>
+            <p class="text-stone-400 text-sm font-medium mb-2">
+                CA: 0x1f504ddf72f698dcc53a8fc6a8ae779383447457
+            </p>
+            <p class="text-stone-300 text-xs font-semibold">
+                © 2026 Quokkozy ($QUZY). Built on Base. Optimized for Uniswap V4.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCA() {
+            const ca = '0x1f504ddf72f698dcc53a8fc6a8ae779383447457';
+            const el = document.createElement('textarea');
+            el.value = ca;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const btn = event.currentTarget;
+            const originalText = btn.innerText;
+            btn.innerText = 'COPIED!';
+            btn.style.backgroundColor = '#10b981';
+            btn.style.borderColor = '#10b981';
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.borderColor = '';
+            }, 2000);
+        }
+
+        function downloadWP() {
+            const whitepaperContent = `
+QUOKKOZY ($QUZY) WHITE PAPER
+"The Coziest Meme on Base – No Presale, Just Burn."
+
+1. The Vision: Why Quokkozy?
+Forget the complex utility—Quokkozy (QUZY) is here to be the friendliest, coziest, and most deflationary meme coin on the Base ecosystem. Launched via Zora protocols, QUZY is built for the community from day one. No Presale. No Insiders. Just pure vibes and massive burns.
+
+2. Tokenomics (The $QUZY Breakdown)
+We keep it simple but powerful. 1 Billion tokens, split right down the middle.
+
+Total Supply: 1,000,000,000 $QUZY
+- Fair Launch (50%): 500M tokens sent straight to Uniswap V4 Liquidity Pool. No presale means everyone starts at the same line.
+- Creator Fund (50%): 500M tokens reserved for the "Double-Burn" engine and ecosystem growth.
+
+3. The "Double-Burn" Engine (Deflationary Power)
+$QUZY isn't just a meme; it’s a shrinking supply machine. We burn tokens in two aggressive ways:
+
+3.1 Holder-Activated Burn
+We reward our diamond hands by burning Creator tokens based on how much the community holds:
+- Hold 1,000 - 9,000 QUZY: Triggers a 1% Burn.
+- Hold 10,000+ QUZY: Triggers a 5% Burn.
+Total Potential Burn: Up to 14% of the supply is targeted for destruction as the community grows!
+
+3.2 The Quarterly "Mega-Burn" (Creator Rewards)
+Every 3 months, the Creator claims rewards. Instead of dumping, we pump the ecosystem by splitting the claim:
+- 50% INSTANT BURN: Half of the rewards are sent to the dead address forever.
+- 40% MARKETING: To keep the Quokkozy hype alive globally.
+- 10% TEAM: To keep the gears turning and the cozy vibes flowing.
+
+4. Why Base & Zora?
+- Base Layer 2: Lightning-fast transactions and gas fees so cheap you won't even feel them.
+- Zora Protocol: The gold standard for provenance and creative launches on-chain.
+- Uniswap V4: Leveraging the latest "Hooks" technology for the most efficient meme-trading experience in DeFi.
+
+5. Roadmap: Simple & Clean
+- Launch: Add 500M $QUZY to Uniswap V4. No Presale.
+- Trend: Get the Quokka viral on Base and Zora.
+- Burn: Execute the first Tiered Burns as holders climb.
+- Claim & Burn: Every 3 months, we reduce the supply and increase the hype.
+
+6. Conclusion
+$QUZY is a meme coin designed to get scarcer every single day. With No Presale and a 50% Burn of all creator rewards, we are putting the power—and the supply—back into the community's hands.
+
+Stay Cozy. Watch it Burn.
+--------------------------------------------------
+Official Links:
+Zora: https://zora.co/@quzy
+Dex: https://www.geckoterminal.com/base/pools/0x1f5b10e6994fe8772ad4f30bf7bb8c78ce7baa02fb506e62a3aa6e7d89df5ec6
+X: https://x.com/0xMeltie
+CA: 0x1f504ddf72f698dcc53a8fc6a8ae779383447457
+            `;
+            const blob = new Blob([whitepaperContent], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'QUZY_Whitepaper_Full.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+    </script>
+
+</body>
+</html>
